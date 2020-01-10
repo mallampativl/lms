@@ -21,7 +21,7 @@ public class LeaveDaoImpl implements LeaveDao {
 	@Qualifier("dbConfig")
 	ReloadableResourceBundleMessageSource reload;
 	
-	final String INSERT_QUERY = "insert into employee (name) values (?)";
+	//final String INSERT_QUERY = "insert into employee (name) values (?)";
 	
 	@Override
 	public String saveDetails(Leaves leaves) {
@@ -29,9 +29,9 @@ public class LeaveDaoImpl implements LeaveDao {
 				"(name) VALUES (?)";
 		jdbcTemplate.update(sql, new Object[] { leaves.getName()
 				 });*/
-		Object[] objArray=new Object[]{leaves.getName()};
-		String sql = reload.getMessage(INSERT_QUERY, objArray,null);
-		jdbcTemplate.update(sql);
+		Object[] objArray=new Object[]{leaves.getName(),leaves.getFromDate(),leaves.getToDate()};
+		String sql = reload.getMessage(Constants.INSERT_DETAILS,null,null);
+		jdbcTemplate.update(sql,objArray);
 		System.out.println(jdbcTemplate);
 		return "hi";
 		
