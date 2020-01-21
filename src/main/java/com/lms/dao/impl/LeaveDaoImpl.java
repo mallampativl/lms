@@ -2,8 +2,7 @@ package com.lms.dao.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.support.ReloadableResourceBundleMessageSource;
-import org.springframework.context.support.ResourceBundleMessageSource;
+import org.springframework.context.MessageSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -19,23 +18,20 @@ public class LeaveDaoImpl implements LeaveDao {
 	
 	@Autowired
 	@Qualifier("dbConfig")
-	ReloadableResourceBundleMessageSource reload;
+	MessageSource reload;
 	
-	//final String INSERT_QUERY = "insert into employee (name) values (?)";
 	
 	@Override
-	public String saveDetails(Leaves leaves) {
-		/*String sql = "insert into leave_management_db " +
-				"(name) VALUES (?)";
-		jdbcTemplate.update(sql, new Object[] { leaves.getName()
-				 });*/
-		Object[] objArray=new Object[]{leaves.getName(),leaves.getFromDate(),leaves.getToDate()};
+	public int saveDetails(Leaves leaves) {
+		
+		Object[] objArray=new Object[]{leaves.getName(),leaves.getFromDate(),leaves.getToDate(),leaves.getNo_of_days()};
 		String sql = reload.getMessage(Constants.INSERT_DETAILS,null,null);
-		jdbcTemplate.update(sql,objArray);
+		int x=jdbcTemplate.update(sql,objArray);
 		System.out.println(jdbcTemplate);
-		return "hi";
+		return x;
 		
 	}
+	
 	
 	
 	

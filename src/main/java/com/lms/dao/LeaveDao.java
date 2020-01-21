@@ -7,6 +7,6 @@ import com.lms.model.Leaves;
 @Component
 public interface LeaveDao {
 	
-	public String saveDetails(Leaves leaves);
+	public int saveDetails(Leaves leaves);
 
 }

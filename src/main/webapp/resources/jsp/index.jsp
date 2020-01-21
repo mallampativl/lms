@@ -19,8 +19,8 @@
 		Name:<input type="text" name="name"> 
 			<br><br>
 		Start Date:<input type="text" id="fromDate" name="fromDate" autocomplete="off"> 
-		End Date:<input class="calculate" type="text" id="toDate" name="toDate" autocomplete="off">
-		<input type="text" class='calculated' disabled />
+		End Date:<input  type="text" id="toDate" name="toDate" autocomplete="off">
+		Number Of Days:<input type="text" class='calculated' name="no_of_days"  readonly="readonly"/>
 		<input type="submit" value="submit">
 	
 	</form>

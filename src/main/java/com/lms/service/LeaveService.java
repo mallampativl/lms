@@ -1,6 +1,8 @@
 package com.lms.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 import com.lms.dao.LeaveDao;
@@ -10,11 +12,23 @@ import com.lms.model.Leaves;
 public class LeaveService {
 	
 	@Autowired
+	JavaMailSender emailConfig;
+	@Autowired
+	SimpleMailMessage sms;
+	
+	@Autowired
 	LeaveDao leaveDao;
 	
 	public String save(Leaves leaves){
-		leaveDao.saveDetails(leaves);
-		return "";
+	 int x=leaveDao.saveDetails(leaves);
+		 if(x>=2){
+			 emailConfig.send(sms);
+		 }
+		 else{
+			 
+		 }
+		 return "";
 	}
+	
 
 }

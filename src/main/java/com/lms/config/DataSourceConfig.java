@@ -27,12 +27,12 @@ public class DataSourceConfig {
 	@Autowired
 	Environment environment;
 	
-	/*@Bean(name="Queries")
+	@Bean("dbConfig")
 	public MessageSource messageSource(){
 		ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
 		 messageSource.setBasename("classpath:properties/Queries");
 		return messageSource;
-	}*/
+	}
 	
 	@Bean
 	DataSource dataSource() {
@@ -51,7 +51,6 @@ public class DataSourceConfig {
     }
 	
 	
- 
 	
 
 }
