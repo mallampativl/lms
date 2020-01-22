@@ -9,4 +9,5 @@ public class Constants {
 	public static final String USER = "DB_USERNAME";
 	public static final String DRIVER = "DB_DRIVER_CLASS";
 	public static final String PASSWORD = "DB_PASSWORD";
+	public static final String SELECT = "select";
 }

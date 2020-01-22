@@ -1,5 +1,7 @@
 package com.lms.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -29,6 +31,10 @@ public class LeaveService {
 		 }
 		 return "";
 	}
-	
+	public List<Leaves> fetchDetaild(Leaves leaves){
+		List<Leaves> list = leaveDao.fetchdetails();
+		return list;
+		
+	}
 
 }

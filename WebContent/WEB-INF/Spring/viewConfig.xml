@@ -9,12 +9,12 @@
 		default-autowire="byName">
 
 	<mvc:annotation-driven /> 
-	<mvc:resources mapping="/resources/**" location="/resources/"/>
+	<mvc:resources mapping="/resources/**" location="/WEB-INF/resources/"/>
 
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix">
-			<value>/resources/jsp/</value>
+			<value>/WEB-INF/resources/jsp/</value>
 		</property>
 		<property name="suffix">
 			<value>.jsp</value>

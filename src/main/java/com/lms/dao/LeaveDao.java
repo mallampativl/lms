@@ -1,5 +1,7 @@
 package com.lms.dao;
 
+import java.util.List;
+
 import org.springframework.stereotype.Component;
 
 import com.lms.model.Leaves;
@@ -8,5 +10,6 @@ import com.lms.model.Leaves;
 public interface LeaveDao {
 	
 	public int saveDetails(Leaves leaves);
+	public List<Leaves> fetchdetails();
 
 }
